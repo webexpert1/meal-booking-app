@@ -1,16 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import mealsRoute from './routes/meal.route';
 
+// Set up the app with express
 const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello Express');
-});
+app.use('/api/v1/meals', mealsRoute);
 
-app.get('/api/v1/meals', (req, res) => {
-  res.send('Meals endpoint...');
-});
 
-app.listen(5000);
+app.listen(3000);
