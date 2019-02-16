@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Book A Meal</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="../js/index.js"></script>
+</head>
+<body>
+   
+   
+  <!-- Tab Links -->
+<div class="resize" style="margin: ">
+  <div class="tab" >
+      <button class="tablinks " onclick="openCity(event, 'Sign Up')">Sign Up</button>
+      <button class="tablinks" onclick="openCity(event, 'Login')">Login</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="Sign Up" class="tabcontent" class="center">
+      <h3>Sign Up Page</h3>
+ 
+    <div class="container">
+        <form >
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">First Name:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="firstname" placeholder="First Name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Last Name:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lname" placeholder="Last Name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="Enter Email" name="email" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="psw">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="Enter Password" name="psw" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="psw-repeat">Repeat Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="Enter Password" name="psw-repeat" />
+                </div>
+            </div>
+            <div class="row">
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+               </label>
+           </div>
+           <div class="row">
+            <p>By creating an account you agree to our 
+                <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
+            </p>
+          </div>
+            <div class="row">
+                    <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+  </div>
+
+  <div id="Login" class="tabcontent">
+      <h3>Login Page </h3>
+
+      <div class="container">
+            <form > 
+                <div class="row">
+                    <div class="col-25">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Enter Email" name="email" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="psw">Password</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Enter Password" name="psw" />
+                    </div>
+                </div>
+                <div class="row">
+                  <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                   </label>
+               </div>
+               <div class="row">
+                <p>By creating an account you agree to our 
+                    <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
+                </p>
+              </div>
+                <div class="row">
+                        <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+  </div>
+
+</div>
+      
+
+</main>
+</body>
+</html>
