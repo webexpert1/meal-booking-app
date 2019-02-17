@@ -1,4 +1,4 @@
-import MealsService from './meal.service';
+import MealsService from '../services/meal.service';
 import dummyData from '../utils/dummyData';
 
 const { menu } = dummyData;
