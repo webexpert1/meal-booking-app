@@ -286,9 +286,11 @@ textarea {
   height: auto;
 }
 
+
+/* style my buttons */
 .button {
   /* border: 2px solid #333; */
-  color: #333;
+  color: #fff;
   padding: 10px 0;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
@@ -296,10 +298,39 @@ textarea {
   font-weight: bold;
   letter-spacing: 1.5px;
   text-decoration: none;
-  background: green
-
+  background: green;
+  -webkit-transition: .25s all ease-in-out;
+  -moz-transition: .25s all ease-in-out;
+  -o-transition: .25s all ease-in-out;
+  transition: .25s all ease-in-out;
+  transform: scale(.9, .9) translate(0, -5px);
+}
+.button:focus,
+.button:hover {
+  background-color: #333;
+  color: #fff;
+  transform: scale(.95, .95);
+}
+.button-narrow{
+  width: 25%
+}
+.button-alt{
+  color: #fff;
+  border-color: #fff;
+}
+.float-left {
+  float: left;
+}
+.float-right{
+  float: right;
 }
 
+img{
+  border: 10px solid #fff;
+}
+img:hover {
+  /* transform: rotate(15deg) scale(1.25, 1.25) */
+}
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
