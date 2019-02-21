@@ -25,7 +25,6 @@ const OrderService = {
   },
 
   editOrder(id, newInfo) {
-    // eslint-disable-next-line eqeqeq
     const toEdit = orders.find(order => order.id == id);
 
     if (toEdit) {
