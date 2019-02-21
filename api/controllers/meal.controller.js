@@ -19,33 +19,27 @@ const MealController = {
   },
 
   getSingleMeal(req, res) {
-    const { id } = req.params;
+    const {id} = req.params;
     const foundMeal = MealsService.getAMeal(id);
-    if (Object.entries(foundMeal).length !== 0) {
-      return res.status(200).json({
-        status: 'success',
-        data: foundMeal,
-      });
-    }
-    return res.status(400).json({
-      status: 'Error',
-      message: 'No meal with that id found',
-    });
+    
+    return res.json({
+      status: 'success',
+      data: foundMeal,
+    }).status(200);
   },
 
   deleteSingleMeal(req, res) {
     const { id } = req.params;
     const deletedMeal = MealsService.deleteAMeal(id);
+
+    if(!deletedMeal) res.status(404).send('The meal with the given ID was not found.')
     if (Object.entries(deletedMeal).length !== 0) {
       return res.status(200).json({
         status: 'success',
         data: deletedMeal,
       });
     }
-    return res.status(400).json({
-      status: 'Error',
-      message: 'No meal with that id found',
-    });
+   
   },
 
   editAMeal(req, res) {

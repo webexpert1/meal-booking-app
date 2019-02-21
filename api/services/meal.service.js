@@ -10,6 +10,9 @@ const MealsService = {
       meal.name = data.name;
       meal.size = data.size;
       meal.price = data.price;
+
+
+      return meal;
     });
     return validMeals;
   },
@@ -23,12 +26,12 @@ const MealsService = {
   },
 
   getAMeal(id) {
-    const mealFound = dummyData.meals.find(c => c.id === id);
+    const mealFound = dummyData.meals.find(c => c.id == id);
     return mealFound || {};
   },
 
   editAMeal(id, newMeal) {
-    const index = dummyData.meals.findIndex(c => c.id === id);
+    const index = dummyData.meals.findIndex(c => c.id == id);
     const toEdit = dummyData.meals[index];
     if (toEdit) {
       toEdit.name = newMeal.name;
@@ -41,7 +44,7 @@ const MealsService = {
   },
 
   deleteAMeal(id) {
-    const mealToDelete = dummyData.meals.findIndex(c => c.id === id);
+    const mealToDelete = dummyData.meals.findIndex(c => c.id == id);
     if (mealToDelete > -1) {
       dummyData.meals.splice(mealToDelete, 1);
       return dummyData.meals;
