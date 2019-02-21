@@ -2,17 +2,16 @@ import Meal from '../models/meal.model';
 import dummyData from '../utils/dummyData';
 
 
-class MealsService {
+const MealsService = {
   fetchMeals() {
-    return dummyData.meals.map((data) => {
+    const validMeals = dummyData.meals.map((data) => {
       const meal = new Meal();
       meal.id = data.id;
       meal.name = data.name;
       meal.size = data.size;
       meal.price = data.price;
-
-      return meal;
     });
+    return validMeals;
   },
 
   addMeal(meal) {
@@ -25,7 +24,7 @@ class MealsService {
 
   getAMeal(id) {
     const mealFound = dummyData.meals.find(c => c.id === id);
-    return mealFound || {}
+    return mealFound || {};
   },
 
   editAMeal(id, newMeal) {
@@ -41,14 +40,14 @@ class MealsService {
     return {};
   },
 
-  deleteAMeal(id){
+  deleteAMeal(id) {
     const mealToDelete = dummyData.meals.findIndex(c => c.id === id);
-    if(mealToDelete > -1) {
+    if (mealToDelete > -1) {
       dummyData.meals.splice(mealToDelete, 1);
       return dummyData.meals;
     }
     return {};
-  }
-}
+  },
+};
 
 export default MealsService;
