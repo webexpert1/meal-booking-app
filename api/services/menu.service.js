@@ -1,4 +1,4 @@
-import MealsService from '../services/meal.service';
+import MealsService from './meal.service';
 import dummyData from '../utils/dummyData';
 
 const { menu } = dummyData;
@@ -8,7 +8,7 @@ const MenuService = {
     return menu;
   },
   setMenu() {
-    const newMenu = MealsService.fetchAllMeals();
+    const newMenu = MealsService.fetchMeals();
     newMenu.map(c => menu.push(c));
     return menu;
   },
