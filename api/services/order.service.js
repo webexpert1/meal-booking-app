@@ -1,37 +1,59 @@
-import Order from '../models/order.model';
+import MealModel from '../models/meal.model';
 import dummyData from '../utils/dummyData';
 
-const { menu, orders } = dummyData;
-
 const OrderService = {
-  placeOrder(order) {
-    const foundMeal = menu.find(meal => meal.id === order.id);
 
-    if (foundMeal) {
-      const newOrder = new Order();
-
-      newOrder.id = foundMeal.id;
-      newOrder.orderName = foundMeal.name;
-      newOrder.status = 'processing';
-      newOrder.amount = foundMeal.price;
-
-      orders.push(newOrder);
-      return newOrder;
-    } return {};
-  },
-
+  // fetching all the orders
   getAllOrders() {
-    return orders;
+    
+    return dummyData.meals.map((order) => {
+      const orders = new MealModel();
+      orders.id = order.id;
+      orders.name = order.name;
+      orders.size = order.size;
+      orders.price = order.price;
+      return orders;
+    });
   },
 
-  editOrder(id, newInfo) {
-    const toEdit = orders.find(order => order.id == id);
+  // getting order by id
+  getSingleOrder(id) {
+    const orders = dummyData.meals.find(order => order.id == id);
+    return orders || {};
+  },
 
-    if (toEdit) {
-      toEdit.status = newInfo.status;
+  // adding to order list
+  addToOrder(order) {
+    const orderLength = dummyData.meals.length;
 
-      return toEdit;
-    } return {};
+    // checking if the array is empty to avoid undefined errors.
+    if (orderLength === undefined || orderLength == 0) {
+      order.id = 1;
+      dummyData.meals.push(order);
+    } else {
+      const lastId = dummyData.meals[orderLength - 1].id;
+      const newId = lastId + 1;
+      order.id = newId;
+      dummyData.meals.push(order);
+    }
+    return order;
+  },
+
+  // updating order
+  updateOrder(id, updateOrder) {
+    // checking for meal id, deleting and updating the array
+    const orderId = dummyData.meals.find(order => order.id == id);
+    updateOrder.id = orderId.id;
+    dummyData.meals.splice(orderId.id - 1, 1, updateOrder);
+    return updateOrder;
+  },
+
+  // delete order by id
+  deleteOrder(id) {
+    // checking for order id and deleting it from the array
+    const order = dummyData.meals.find(order => order.id == id);
+    dummyData.meals.splice(order.id - 1, 1);
+    return {};
   },
 
 };
