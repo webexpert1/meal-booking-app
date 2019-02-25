@@ -5,7 +5,6 @@ const OrderService = {
 
   // fetching all the orders
   getAllOrders() {
-    
     return dummyData.meals.map((order) => {
       const orders = new MealModel();
       orders.id = order.id;
@@ -21,7 +20,11 @@ const OrderService = {
     const orders = dummyData.meals.find(order => order.id == id);
     return orders || {};
   },
-
+  findAnOrder(id) {
+    const index = parseInt(id, 10);
+    const myOrder = dummyData.orders.find(order => order.id === index);
+    return myOrder;
+  },
   // adding to order list
   addToOrder(order) {
     const orderLength = dummyData.meals.length;
@@ -51,7 +54,7 @@ const OrderService = {
   // delete order by id
   deleteOrder(id) {
     // checking for order id and deleting it from the array
-    const order = dummyData.meals.find(order => order.id == id);
+    const order = dummyData.meals.find(c => c.id == id);
     dummyData.meals.splice(order.id - 1, 1);
     return {};
   },
