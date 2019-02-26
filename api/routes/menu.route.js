@@ -5,7 +5,6 @@ const router = Router();
 
 router.get('/', MenuController.fetchMenu);
 router.post('/', MenuController.setupMenu);
-router.post('/:id', MenuController.addAMeal);
 
 
 export default router;
